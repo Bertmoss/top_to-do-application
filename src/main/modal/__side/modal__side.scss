@@ -1,0 +1,19 @@
+.modal__side {
+  width: 45%;
+  height: 100%;
+  border-right: 1px black solid;
+  /* Display maybe in separate class */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.side__button {
+  width: 70%;
+  height: 50px;
+}
+
+.s-side__button {
+  appearance: none;
+}

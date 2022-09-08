@@ -1,0 +1,10 @@
+@use "./general/general__scss/body";
+
+/* header */
+@use "./header/header.scss";
+
+/* main */
+@use "./main/main.scss";
+@use "./main/modal/modal.scss";
+@use "./main/modal/__side/modal__side.scss";/* 
+@use "./main/modal/__form/modal__form--to-do.scss"; */
