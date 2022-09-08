@@ -9,36 +9,30 @@ modal.classList.add("modal", "main__modal");
 
 modal.appendChild(side.sideDiv);
 
-/* CHANGE THE NAME OF THE CLASS FROM TEST TO BEM TYPE DONT FORGET */
-
 let formContainer = document.createElement("div");
 formContainer.appendChild(taskForm);
-formContainer.classList.add("test")
+formContainer.classList.add("modal__form")
 modal.appendChild(formContainer);
 
+function removeForm() {
+  while (formContainer.firstChild) {
+    formContainer.firstChild.reset()
+    formContainer.removeChild(formContainer.firstChild)
+  }
+}
+
 side.taskButton.addEventListener("click", () =>{
-  let previousForm = document.querySelector(".test > *" )
-  formContainer.removeChild(previousForm)
+  removeForm();
   formContainer.appendChild(taskForm);
 })
 side.projectButton.addEventListener("click", () =>{
-  let previousForm = document.querySelector(".test > *" )
-  formContainer.removeChild(previousForm)
+  removeForm();
   formContainer.appendChild(projectForm);
 })
 side.noteButton.addEventListener("click", () =>{
-  let previousForm = document.querySelector(".test > *" )
-  formContainer.removeChild(previousForm)
+  removeForm();
   formContainer.appendChild(noteForm);
 })
-
-
-
-
-function clearFormContainer() {
-  modal.removeChild(formContainer);
-}
-
 
 
 export {modal} 
