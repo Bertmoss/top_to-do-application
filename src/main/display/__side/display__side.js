@@ -1,29 +1,22 @@
 
-const sideNav = document.createElement("nav");
+const nav = document.createElement("nav");
+nav.classList.add("display__nav")
+const navList = document.createElement("ul");
+navList.classList.add("nav__list", "c-nav__list")
 
-const homeSec = document.createElement("section"),
-  projectSec = document.createElement("section"),
-  notesSec = document.createElement("section"),
-  homeList = document.createElement("ul"),
-  projectList = document.createElement("ul"),
-  noteList = document.createElement("ul");
-
-
-
-homeSec.appendChild(homeList);
-projectSec.appendChild(projectList);
-notesSec.appendChild(noteList);
-sideNav.appendChild(homeSec);
-sideNav.appendChild(projectSec);
-sideNav.appendChild(notesSec);
-
-/* Project */
-function subscribeProject(obj) {
+function createListItem(text) {
   let listItem = document.createElement("li");
-  let link = document.createElement("a");
-  link.textContent = obj.title;
-  listItem.appendChild(link);
-  projectList.appendChild(listItem);
+  listItem.classList.add("nav__list-item", "c-nav__list-item")
+  let span = document.createElement("span");
+  span.textContent = text;
+  listItem.appendChild(span);
+  navList.appendChild(listItem)
+  return listItem;
 }
 
-export {sideNav, subscribeProject}
+nav.appendChild(navList)
+
+
+
+
+export {nav, createListItem}

@@ -1,11 +1,16 @@
 .modal {
   border: black 2px solid;
   display: flex;
+    background-color: white;
 }
 .main__modal {
-  width: 90%;
-  height: 500px; /* change this later! */
-  margin: 10% auto;
+  position: absolute;
+  top: 20%;
+  margin: 0px auto;
+  left: 0px;
+  right: 0px;
+  width: 300px;
+  min-height: 300px; 
 
 }
 .main__modal--hidden {

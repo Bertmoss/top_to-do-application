@@ -1,4 +1,6 @@
 const taskDisplay = document.createElement("div");
+taskDisplay.classList.add("display__container-task--hidden")
+
 
 function subscribeTask(obj) {
   let title = document.createElement("h6");

@@ -18,33 +18,5 @@ sideDiv.appendChild(taskButton)
 sideDiv.appendChild(projectButton)
 
 sideDiv.appendChild(noteButton)
-/* 
-function createBasicButton() {
-  let button = document.createElement('button');
-  button.setAttribute("type", "button");
-  button.classList.add("side__button", "s-side__button");
-  return button;
-}
 
-const buttonModifiers = {
-  _modifiers: ["task", "project", "note"],
- 
-  set modifiers(modifier) {
-    this._modifiers.push(modifier)
-  },
-  get modifiers() {
-    return this._modifiers
-  },
-  remove(start, amount) {
-    this._modifiers.splice(start, amount)
-  }
-}
-
-buttonModifiers.modifiers.forEach(modifier => {
-  let btn = createBasicButton();
-  btn.classList.add(`side__button--${modifier}`)
-  btn.textContent = modifier.toUpperCase();
-  sideDiv.appendChild(btn);
-})
- */
 export {sideDiv, taskButton, noteButton, projectButton} 

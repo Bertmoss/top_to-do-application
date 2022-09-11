@@ -1,9 +1,9 @@
 
 const title = document.createElement("h1");
 title.classList.add("header__title");
-title.textContent = "To Do";
+title.textContent = "Just Do It";
 
-const header = document.createElement("header");
+const header = document.querySelector("header");
 
 header.classList.add("header", "body__header");
 

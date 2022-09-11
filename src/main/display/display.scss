@@ -1,0 +1,17 @@
+@use  "../../general/general__scss/colors" as *;
+
+.display__container-note--hidden,
+.display__container-project--hidden,
+.display__container-task--hidden {
+  display: none;
+}
+
+.display__container {
+  min-height: 100px;
+  background-color: $dark-blue;
+}
+.display__content {
+  border-radius: 0px 80px 0px 0px;
+  background-color: $white;
+  min-height: 250px;
+}

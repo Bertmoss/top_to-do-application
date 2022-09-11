@@ -8,7 +8,7 @@
     "watch": "webpack --progress --watch",
     "sass": "sass ./src/style.scss ./dist/output.css",
     "build-all": "sass ./src/style.scss ./dist/output.css && webpack",
-    "watch-all": "concurrently \"sass --watch ./src/style.scss ./dist/output.css\" \"webpack --watch\"" 
+    "watch-all": "concurrently \"sass --watch ./src/style.scss ./dist/output.css\" \"webpack --watch\""
   },
   "repository": {
     "type": "git",
@@ -29,5 +29,8 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }

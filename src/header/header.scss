@@ -1,15 +1,21 @@
+
+@use "../general/general__scss/colors" as *;
+
+
+
 .header {
-  background-color: orange;
+  background-color: $dark-blue;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .body__header {
-  height: 100px;
+  height:80px;
   width: 100vw;
 }
 
 .header__title {
   margin: 0px;
+  color: $white;
 }

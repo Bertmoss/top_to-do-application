@@ -1,6 +1,6 @@
 
 import {createBasicInput, appendLabelInput, createLabel} from "../../../general/general__js/_input"
-import {ProjectConstructor} from "../../../general/general__js/pub-sub"
+import { ProjectConstructor } from "../modal--pub-sub";
 
 
 const projectForm = document.createElement("form");
