@@ -12,14 +12,17 @@ appendLabelInput(projectForm, label, project);
 
 /* "submit" button */
 const submit = document.createElement("button");
-submit.setAttribute("type", "reset"); /* maybe clear instead*/
+submit.setAttribute("type", "reset"); 
 submit.textContent = "Create Project";
 projectForm.appendChild(submit);
 
 function publishProject() { 
   let obj = new ProjectConstructor(project.value);
-  obj.publish("project", obj)
+  obj.publish(obj)
 }
+
+let general = new ProjectConstructor("general");
+general.publish(general);
 
 submit.addEventListener("click", publishProject)
 

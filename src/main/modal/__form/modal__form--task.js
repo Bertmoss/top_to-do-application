@@ -1,6 +1,6 @@
 /* TO DO FORM */
 import {createBasicInput, appendLabelInput, createLabel} from "../../../general/general__js/_input"
-import {TaskConstructor} from "../modal--pub-sub";
+import {TaskConstructor, ProjectConstructor, existingProjectCheck} from "../modal--pub-sub";
 
 
 let taskForm = document.createElement("form");
@@ -30,6 +30,17 @@ let dateLabel= createLabel(date, "Due date:");
 appendLabelInput(div, dateLabel, date)
 taskForm.appendChild(div);
 
+const selectProject = document.createElement("select");
+selectProject.setAttribute("id", "select-project");
+selectProject.setAttribute("name", "project");
+
+const optionGeneral = document.createElement("option");
+optionGeneral.setAttribute("value", "general");
+optionGeneral.textContent="general";
+selectProject.appendChild(optionGeneral)
+
+const selectLabel = createLabel(selectProject, "Project");
+appendLabelInput(taskForm, selectLabel, selectProject);
 
 /*RADIO BUTTONS*/
 let fieldset = document.createElement("fieldset");
@@ -69,8 +80,9 @@ taskForm.appendChild(submit);
 
 submit.addEventListener("click", () => {
   let radio = document.querySelector("input:checked");
-  let obj = new TaskConstructor(title.value, textArea.value, date.value, radio.value);
-  obj.publish();
+  let obj = existingProjectCheck(selectProject.value); /* THIS IS CREATING A NEW OBJECT WHEN IN FACT IT SHOULD BE ADDING TO THE ARRAY OF AN ALREADY EXISTING OBJECT */
+  obj.createTask(title.value, textArea.value, date.value, radio.value);
+  obj.publish(obj);
 })
 
 export {taskForm};

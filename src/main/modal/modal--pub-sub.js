@@ -1,7 +1,7 @@
 import { pubSubFactory } from "../../general/general__js/pub-sub";
 import { subscribeNote } from "../../main/display/__container/display__container--note";
 import { subscribeProject } from "../../main/display/__container/display__container--project";
-import { subscribeTask } from "../../main/display/__container/display__container--task";
+import { subscribeTask, taskDisplay } from "../../main/display/__container/display__container--task";
 
 
 
@@ -21,12 +21,56 @@ NoteConstructor.prototype.publish = function () {
 /* Project Constructor */
 function ProjectConstructor(title) {
   this.title = title;
+  this.taskArr = [];
 }
 
-ProjectConstructor.prototype.publish = function () {
-  let obj = new ProjectConstructor(this.title);
+ProjectConstructor.prototype.publish = function(obj) {
   pubSubForms.publish("project", obj);
 };
+ProjectConstructor.prototype.publishTask = function(obj) {
+  pubSubForms.publish("project", obj);
+};
+
+ProjectConstructor.prototype._taskConstruct = function(title, details, date, priority) {
+  (this.title = title),
+  (this.details = details),
+  (this.date = date),
+  (this.priority = priority);
+};
+
+ProjectConstructor.prototype.createTask = function(title, details, date, priority) {
+  let obj = this._taskConstruct(title, details, date, priority)
+  this.taskArr.push(obj)
+};
+
+
+/* function to check existing project objects */
+function existingProjectCheck(title) {
+  pubSubForms.subscribers.forEach((element) => {
+    if (element.title == title) {
+      return element;
+    }
+    
+  });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Task Constructor */
 
@@ -47,9 +91,15 @@ TaskConstructor.prototype.publish = function () {
   pubSubForms.publish("task", obj);
 };
 
+
+
+
+
+
+
 /* Subscribers */
 pubSubForms.subscribe("project", subscribeProject);
 pubSubForms.subscribe("note", subscribeNote);
 pubSubForms.subscribe("task", subscribeTask);
 
-export { NoteConstructor, ProjectConstructor, TaskConstructor,}
+export { NoteConstructor, ProjectConstructor, TaskConstructor, existingProjectCheck}

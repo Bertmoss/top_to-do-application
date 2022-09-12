@@ -28,6 +28,7 @@ function pubSubFactory() {
   return {
     subscribe,
     publish,
+    subscribers,
   };
 }
 
